@@ -1,0 +1,292 @@
+/* Global Styles */
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo h1, .logo-media-screen h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4285f4;
+}
+
+.logo-media-screen{
+  display: none;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+}
+
+/* Image Uploader */
+.image-uploader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  border: 2px dashed #4285f4;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  max-width: 500px;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.image-uploader:hover {
+  background-color: #e3f2fd;
+}
+
+.upload-btn {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.upload-btn:hover {
+  background-color: #3367d6;
+}
+
+/* Color Display */
+.color-display {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.image-container {
+  margin-bottom: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 40%;
+}
+
+.image-wrapper {
+  position: relative;
+  cursor: crosshair;
+}
+
+.image-wrapper img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.color-btn-section{
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-point {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px black;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.color-palette {
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.color-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.color-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-box {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 0.5rem;
+}
+
+.color-hex {
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+/* Google Auth */
+.google-auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-picture {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.user-info {
+  font-weight: 400;
+  position: relative;
+}
+
+.sign-out-btn {
+  font-weight: 500;
+  margin-left: 1rem;
+  background-color: #ff4b5c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sign-out-btn:hover {
+  background-color: #d73848;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    padding: .5rem;
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .image-uploader {
+    max-width: 90%;
+  }
+
+  .color-box {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-name {
+    display: none;
+  }
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .image-uploader {
+    padding: 1rem;
+  }
+
+  .upload-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .color-display{
+    flex-direction: column;
+  }
+
+  .image-container {
+    max-width: 100%;
+  }
+  .navbar{
+    padding: 0.5rem;
+    flex-direction: row;
+  }
+  .logo{
+    display: none;
+  }
+  .logo-media-screen{
+    display: block;
+  }
+}

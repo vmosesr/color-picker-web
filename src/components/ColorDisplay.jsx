@@ -8,9 +8,7 @@ function ColorDisplay({ image, selectedColors, selectedPoint, onImageClick, onIm
 
   useEffect(() => {
     if (image && imageRef.current) {
-      // Extract dominant colors when image is loaded
       extractDominantColors(imageRef.current).then(() => {
-        // Do something if needed
       });
     }
   }, [image]);

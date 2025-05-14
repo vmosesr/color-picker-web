@@ -84,6 +84,7 @@ function ColorDisplay({ image, selectedColors, selectedPoint, onImageClick, onIm
         )}
 
         <div className="">
+            <h6><code>Click any part of Image</code></h6>
             <button className="upload-btn" onClick={handleButtonClick}>
             Select Other Image
             </button>

@@ -13,7 +13,6 @@ function App() {
 
   const handleImageUpload = (img) => {
     setImage(img);
-    // Reset colors when new image is uploaded
     setDominantColors([]);
     setSelectedColors([]);
     setSelectedPoint(null);
@@ -26,10 +25,8 @@ function App() {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
-    // Set click point for visual feedback
     setSelectedPoint({ x, y });
     
-    // Extract colors from around the clicked point
     extractColorsAtPoint(imageElement, x, y);
   };
 
@@ -42,7 +39,6 @@ function App() {
     
     ctx.drawImage(imageElement, 0, 0, canvas.width, canvas.height);
     
-    // Get a small region around the clicked point
     const radius = 5;
     const startX = Math.max(0, x - radius);
     const startY = Math.max(0, y - radius);
@@ -51,7 +47,6 @@ function App() {
     
     const imageData = ctx.getImageData(startX, startY, width, height);
     
-    // Sample pixels and get most common colors
     const colorMap = {};
     
     for (let i = 0; i < imageData.data.length; i += 4) {
@@ -68,12 +63,10 @@ function App() {
       }
     }
     
-    // Convert to array and sort by frequency
     const sortedColors = Object.entries(colorMap)
       .sort((a, b) => b[1] - a[1])
       .map(entry => entry[0]);
     
-    // Get up to 4 most common colors
     setSelectedColors(sortedColors.slice(0, 4));
   };
 
